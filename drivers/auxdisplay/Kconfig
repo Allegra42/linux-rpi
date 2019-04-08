@@ -16,6 +16,14 @@ menuconfig AUXDISPLAY
 
 if AUXDISPLAY
 
+config GROVE
+    tristate "Grove-LCD RGB backlight v4.0 Support"
+    default m
+    ---help---
+        Enable support for the Grove-LCD RGB backlight v4.0 via I2C.
+        The device is accessible via "/dev/grove" char device.
+        For the interface see "include/uapi/linux/grove_ioctl.h".
+
 config HD44780
 	tristate "HD44780 Character LCD support"
 	depends on GPIOLIB || COMPILE_TEST

@@ -135,6 +135,12 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c1_pins>;
 	clock-frequency = <100000>;
+    grovei2c: grove-i2c@3e {
+        compatible = "grove,lcd";
+        reg = <0x3e 0x62>;
+        reg-names = "grovelcd", "grovergb";
+    };
+
 };
 
 &i2c2 {
