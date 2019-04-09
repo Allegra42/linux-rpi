@@ -414,10 +414,7 @@ static struct file_operations grove_fops = {
     .unlocked_ioctl = grove_ioctl,
 };
 
-// new API? we do not need i2c_device_id...
-// static int grove_probe(struct i2c_client *client)
-static int grove_probe(struct i2c_client *client, 
-        const struct i2c_device_id *id)
+static int grove_probe(struct i2c_client *client) 
 {
     int ret = 0;
     struct grove_t *grove;
@@ -555,8 +552,7 @@ static struct i2c_driver grove_driver = {
 	    /* .pm */
 	    .of_match_table = grove_of_idtable
     },
-    .probe = grove_probe,
-    /* .probe_new = grove_probe, */
+    .probe_new = grove_probe,
     .remove = grove_remove,
 };
 
